@@ -8,7 +8,7 @@
 
 200.times do |i|
     Post.create(
-        title: "post #{i}",
+        title: "POST #{i}",
         content: "Este es el post Nº #{i}"
     )
 end

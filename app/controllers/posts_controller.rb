@@ -3,7 +3,16 @@ class PostsController < ApplicationController
 
   # GET /posts or /posts.json
   def index
-    @posts = Post.all
+    # @posts = Post.where(id:[0..9])
+    # @posts = Post.limit(10).where(id:[0..9])
+    @posts = Post.posts_in_range(0, 9)
+    @posts = Post.posts_in_range(params[:start].to_i, params[:end].to_i) if params[:start] && params[:end]
+  
+    respond_to do |format|
+      format.html {  }
+      format.json {  }
+    end
+  
   end
 
   # GET /posts/1 or /posts/1.json
